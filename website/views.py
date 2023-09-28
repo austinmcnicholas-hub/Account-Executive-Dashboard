@@ -123,7 +123,4 @@ def dashboard(request):
 	
 	return render(request, 'dashboard.html') 
 
-def skilltree(request):
-
-	return render(request,'skilltree.html')
 

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Include external stylesheets or CSS links here -->
+    <link rel="stylesheet" href="static\admin\css\card.css">
+</head>
+<body>
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <div class="content">
+            <h1 class="larger-text">WIN Coach Dashboard</h1>
+            <p class="larger-text">Designed for Coach Austin</p>
+            <div>
+                <a href="https://www.instagram.com/win_coach_austin/" target="_blank">
+                    <button type="button">Instagram</button>
+                </a>
+                <a href="https://twitter.com/AustinMc_11" target="_blank">
+                    <button type="button">Twitter</button>
+                </a>
+            </div>
+        </div>
+
+        <style>
+
+          
+
+            .content {
+                width: 100%;
+                position: center;
+                top: 50%;
+                transform: translateY(-20%);
+                text-align: center;
+                color: rgb(0, 0, 0);
+            }
+            
+            .larger-text {
+                font-size: 50px; /* Adjust the font size to make the text larger */
+                margin-top: 80px;
+            }
+
+            .content p {
+                font-size: 20px; /* Adjust the font size to make the text larger */
+                margin: 20px auto;
+                font-weight: bold;
+                line-height: 1.5;
+                color: blueviolet;
+            }
+
+            button {
+                width: 200px;
+                padding: 15px 0;
+                text-align: center;
+                margin: 20px 10px;
+                border-radius: 25px;
+                font-weight: bold;
+                border: 2px solid rgb(0, 0, 0);
+                background: transparent;
+                color: #000000;
+                cursor: pointer;
+                transition: border 0.5s ease-in-out;
+            }
+
+            button:hover {
+                background-color: blueviolet;
+                border: 2px solid transparent;
+            }
+        </style>
+
+        <div class="position-fixed bottom-0 end-0 p-3">
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-animation="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Welcome!!!</strong>
+                    <img src="https://winreality.com/wp-content/plugins/website-functionalities/assets/img/coaches/Austin.jpg" width="30" height="30" class="rounded me-2" alt="Coach Austin">
+                    <strong>Coach Austin</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Stay Hungry ... Stay Humble ... WIN
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var toastElement = document.querySelector('.toast');
+                var toast = new bootstrap.Toast(toastElement);
+                toast.show();
+            });
+        </script>
+    {% else %}
+        <h1>Login</h1>
+        <br/>
+        <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control" name="username" placeholder="Username" required>
+            </div>
+            <br/>
+            <div class="mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-secondary">Login</button>
+        </form>
+    {% endif %}
+{% endblock %}

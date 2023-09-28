@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="https://calendar.google.com/calendar/u/0/r/week?pli=1" target="_blank" class="btn btn-lg calendar-button" style="margin-bottom: 10px">Calendar</a>
+            <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" class="btn btn-lg mail-button" style="margin-bottom: 10px">Mail</a>
+            <button type="button" class="btn  btn-lg Legacy-button" style="margin-bottom: 10px;" onclick="copyLinkToClipboard('Legacy')">Legacy Link</button>
+            <button type="button" class="btn  btn-lg GBB-button" style="margin-bottom: 10px;" onclick="copyLinkToClipboard1('GBB')">GBB Link</button>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <form method="GET" action="{% url 'search' %}" class="mb-4">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search_query" placeholder="Search by First Name or Membership">
+            <button type="submit" class="btn Search-button">Search</button>
+        </div>
+    </form>
+
+    <!-- Display the full table -->
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Membership</th>
+                <th scope="col">Sessions</th>
+                <th scope="col">Roster Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.first_name }} {{ record.last_name }}</td>
+                <td>{{ record.username }}</td>
+                <td>{{ record.email }}</td>
+                <td>{{ record.membership }}</td>
+                <td>{{ record.sessions }}</td>
+                <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .calendar-button {
+        background-color: #000000;
+        color: white;
+    }
+
+    .calendar-button:hover {
+        background-color: rgb(153, 84, 168);
+    }
+
+    .mail-button {
+        background-color: #000000;
+        color: white;
+    }
+
+    .mail-button:hover {
+        background-color: rgb(153, 84, 168);
+    }
+
+    .GBB-button {
+        background-color: #000000;
+        color: white;
+    }
+
+    .GBB-button:hover {
+        background-color: rgb(153, 84, 168);
+    }
+
+    .Legacy-button {
+        background-color: #000000;
+        color: white;
+    }
+
+    .Legacy-button:hover {
+        background-color: rgb(153, 84, 168);
+    }
+
+    .Search-button {
+        background-color: #000000;
+        color: white;
+    }
+
+    .Search-button:hover {
+        background-color: rgb(153, 84, 168);
+    }
+</style>
+
+<script>
+    function copyLinkToClipboard(linkType) {
+        const linkToCopy = linkType === 'Legacy' ? 'https://calendly.com/austin-mcnicholas/win-reality-hitting-lesson-clone' : 'YOUR_LEGACY_LINK_HERE';
+        const tempInput = document.createElement('input');
+        tempInput.value = linkToCopy;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Link copied to clipboard: ' + linkToCopy);
+    }
+</script>
+
+<script>
+    function copyLinkToClipboard1(linkType) {
+        const linkToCopy = linkType === 'GBB' ? 'https://calendly.com/austin-mcnicholas/win-reality-gbb-hitting-lesson' : 'YOUR_GBB_LINK_HERE';
+        const tempInput = document.createElement('input');
+        tempInput.value = linkToCopy;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Link copied to clipboard: ' + linkToCopy);
+    }
+</script>
+
+{% endblock %}

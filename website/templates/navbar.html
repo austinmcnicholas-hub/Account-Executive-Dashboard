@@ -1,0 +1,58 @@
+<style>
+  .custom-open-button {
+    background-color: transparent; /* Transparent background */
+    color: black; /* Text color */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Font weight */
+    border: 2px solid black; /* Black border */
+  }
+
+  .custom-open-button:hover {
+    background-color: blueviolet; /* Change background color on hover */
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #bbbbbb;"> <!-- Darker background color -->
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="https://emoji.slack-edge.com/T8Y3Z7PLK/win-loading/fae04d2c19a6f949.gif" alt="Your Logo" width="60" height="50" style="border: 2px solid black; border-radius: 15px; padding: 5px;"> <!-- Image with black border and pill shape -->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'dashboard' %}" style="color: black; font-size: 16px; font-weight: bold;">Dashboard</a> <!-- Set text color to black, increase font size, and make it bold -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'skilltree' %}" style="color: black; font-size: 16px; font-weight: bold;">Skill Tree</a> <!-- Set text color to black, increase font size, and make it bold -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'metrics' %}" style="color: black; font-size: 16px; font-weight: bold;">Metrics</a> <!-- Set text color to black, increase font size, and make it bold -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_record' %}" style="color: black; font-size: 16px; font-weight: bold;">Add Player</a> <!-- Set text color to black, increase font size, and make it bold -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}" style="color: black; font-size: 16px; font-weight: bold;">Logout</a> <!-- Set text color to black, increase font size, and make it bold -->
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}" style="color: black; font-size: 16px; font-weight: bold;">Register</a> <!-- Set text color to black, increase font size, and make it bold -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}" style="color: black; font-size: 16px; font-weight: bold;">Login</a> <!-- Set text color to black, increase font size, and make it bold -->
+        </li>
+        {% endif %}
+      </ul>
+      <!-- Add the "Open Tabs" button here with the custom style -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <button type="nav.button" class="btn  btn-lg custom-open-button" onclick="openMultipleLinks()">Open Tabs</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card shadow"> <!-- Add "border-primary" class for a border with a primary color -->
+  <div class="card-body">
+    <p class="card-text">
+      <strong>Email: </strong>{{ customer_record.email }}
+    </p>
+
+    <p class="card-text">
+      <strong>Username: </strong>{{ customer_record.username }}
+    </p>
+
+    <p class="card-text">
+      <strong>Start Date: </strong>{{ customer_record.start_date }}
+    </p>
+
+    <p class="card-text">
+      <strong>Membership: </strong>{{ customer_record.membership }}
+    </p>
+
+    <p class="card-text">
+      <strong>Monthly Payment: </strong>{{ customer_record.monthly_payment }}
+    </p>
+
+    <p class="card-text">
+      <strong>Renewal Date: </strong>{{ customer_record.renewal_date }}
+    </p>
+
+    <p class="card-text" style="width: 41rem;">
+      <strong>Notes: </strong>{{ customer_record.notes }}
+    </p>
+
+    <p class="card-text">
+      <strong>Sessions: </strong>{{ customer_record.sessions }}
+    </p>
+
+    <p class="card-text">
+      <strong>ID: </strong>{{ customer_record.id }}
+    </p>
+  </div>
+</div>
+
+<div class="mt-3"> <!-- Add margin top to separate the buttons -->
+  <a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
+  <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back</a>
+  <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+</div>
+
+{% endblock %}

@@ -1,18 +1,5 @@
 {% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-{% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Include external stylesheets or CSS links here -->
-    <link rel="stylesheet" href="static\admin\css\card.css">
-</head>
-<body>
-
 {% block content %}
     {% if messages %}
         {% for message in messages %}
@@ -38,25 +25,22 @@
         </div>
 
         <style>
-
-          
-
             .content {
                 width: 100%;
                 position: center;
                 top: 50%;
-                transform: translateY(15%);
+                transform: translateY(25%);
                 text-align: center;
                 color: rgb(0, 0, 0);
             }
-            
+
             .larger-text {
-                font-size: 50px; /* Adjust the font size to make the text larger */
+                font-size: 50px;
                 margin-top: 80px;
             }
 
             .content p {
-                font-size: 20px; /* Adjust the font size to make the text larger */
+                font-size: 20px;
                 margin: 20px auto;
                 font-weight: bold;
                 line-height: 1.5;
@@ -87,7 +71,8 @@
             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-animation="true">
                 <div class="toast-header">
                     <strong class="me-auto">Welcome!!!</strong>
-                    <img src="https://winreality.com/wp-content/plugins/website-functionalities/assets/img/coaches/Austin.jpg" width="30" height="30" class="rounded me-2" alt="Coach Austin">
+                    <img src="https://winreality.com/wp-content/plugins/website-functionalities/assets/img/coaches/Austin.jpg"
+                         width="30" height="30" class="rounded me-2" alt="Coach Austin">
                     <strong>Coach Austin</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
@@ -96,28 +81,87 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var toastElement = document.querySelector('.toast');
-                var toast = new bootstrap.Toast(toastElement);
-                toast.show();
-            });
-        </script>
     {% else %}
-        <h1>Login</h1>
-        <br/>
-        <form method="POST" action="{% url 'home' %}">
-            {% csrf_token %}
-            <div class="mb-3">
-                <input type="text" class="form-control" name="username" placeholder="Username" required>
+        <div class="form-container">
+            <div class="sub-form">
+                <h2>Login</h2>
+                <form method="POST" action="{% url 'home' %}">
+                    {% csrf_token %}
+                    <label for="id_username">Username</label> <br>
+                    <input type="text" name="username" id="id_username">  <br>
+                    <label for="id_password">Password</label> <br>
+                    <input type="password" name="password" id="id_password"> <br>
+                    <div class="btn">
+                        <button type="submit">Login</button> <br>
+                    </div>
+                </form>
             </div>
-            <br/>
-            <div class="mb-3">
-                <input type="password" class="form-control" name="password" placeholder="Password" required>
-            </div>
-            <br/>
-            <button type="submit" class="btn btn-secondary">Login</button>
-        </form>
+        </div>
+
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
+                background-image: linear-gradient(45deg, #21D4FD 0%, #B721FF 100%);
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            .form-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+
+            .sub-form {
+                flex-shrink: 0;
+                width: 30vw;
+                max-width: 80%;
+                height: 70vh;
+                border-radius: 12px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                background-color: white;
+            }
+
+            h2 {
+                margin: 1.5rem 0 2rem 0;
+                text-align: center;
+            }
+
+            label {
+                padding-left: 16px;
+                opacity: 0.75;
+            }
+
+            input {
+                border-radius: 50px;
+                border-style: none;
+                outline: none;
+                margin-top: 8px;
+                padding: 12px 24px;
+                width: 100%;
+                background-color: #EAEEED;
+            }
+
+            button {
+                padding: 12px 48px;
+                border-radius: 50px;
+                color: white;
+                margin-top: 1rem;
+                cursor: pointer;
+                outline: none;
+                border-width: 0;
+                background-color: #1a1b27;
+                font-weight: 600;
+                width: 100%;
+            }
+
+            button:hover {
+                opacity: 0.8;
+            }
+        </style>
     {% endif %}
 {% endblock %}

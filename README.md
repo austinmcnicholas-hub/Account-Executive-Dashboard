@@ -41,7 +41,7 @@ User authentication is handled through the Django framework, which provides a se
 
 ## Database
 
-The project uses MySQL as the database management system to store and manage client data. You can configure your database settings in the `settings.py` file.
+The project uses MySQL as the database management system to store and manage client data. 
 
 
 

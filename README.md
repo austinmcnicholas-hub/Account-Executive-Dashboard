@@ -5,7 +5,7 @@
 
 ## Introduction
 
-The Account Executive Dashboard is a web-based application built using the Django framework. It provides account executives with the tools they need to manage and interact with client data effectively. Users can perform Create, Read, Update, and Delete (CRUD) operations on client records, search for clients, and update client information. The application also includes features like copying links to the clipboard, opening multiple tabs at once, and accessing data from external sources, such as Domo dashboards. (Majority of code found in "website" folder")
+The Account Executive Dashboard is a web-based application built using the Django framework. It provides account executives with the tools they need to manage and interact with client data effectively. Users can perform Create, Read, Update, and Delete (CRUD) operations on client records, search for clients, and update client information. The application also includes features like copying links to the clipboard, opening multiple tabs at once, and accessing data from external sources, such as Domo dashboards. (Majority of code found in "website" folder)
 
 ## Features
 

@@ -21,7 +21,7 @@ The Account Executive Dashboard is a web-based application built using the Djang
 
 - **Tab Management**: The application includes a tab that allows users to open multiple tabs simultaneously, providing an efficient way to access multiple web pages.
 
-- **Social Media Links**: Users can access their social media profiles through buttons on the navigation bar.
+- **Social Media Links**: Users can access their social media profiles through buttons on the homepage.
 
 ## Technologies
 

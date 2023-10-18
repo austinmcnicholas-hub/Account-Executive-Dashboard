@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <a href="https://calendar.google.com/calendar/u/0/r/week?pli=1" target="_blank" class="btn btn-lg calendar-button" style="margin-bottom: 10px">Calendar</a>
-            <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" class="btn btn-lg mail-button" style="margin-bottom: 10px">Mail</a>
+            <a href="https://calendar.google.com/calendar/" target="_blank" class="btn btn-lg calendar-button" style="margin-bottom: 10px">Calendar</a>
+            <a href="https://mail.google.com/mail" target="_blank" class="btn btn-lg mail-button" style="margin-bottom: 10px">Mail</a>
             <button type="button" class="btn  btn-lg Legacy-button" style="margin-bottom: 10px;" onclick="copyLinkToClipboard('Legacy')">Legacy Link</button>
             <button type="button" class="btn  btn-lg GBB-button" style="margin-bottom: 10px;" onclick="copyLinkToClipboard1('GBB')">GBB Link</button>
         </div>
@@ -95,7 +95,7 @@
 
 <script>
     function copyLinkToClipboard(linkType) {
-        const linkToCopy = linkType === 'Legacy' ? 'https://calendly.com/austin-mcnicholas/win-reality-hitting-lesson-clone' : 'YOUR_LEGACY_LINK_HERE';
+        const linkToCopy = linkType === 'Legacy' ? 'https://calendly.com/austin-mcnicholas/' : 'YOUR_LEGACY_LINK_HERE';
         const tempInput = document.createElement('input');
         tempInput.value = linkToCopy;
         document.body.appendChild(tempInput);
@@ -108,7 +108,7 @@
 
 <script>
     function copyLinkToClipboard1(linkType) {
-        const linkToCopy = linkType === 'GBB' ? 'https://calendly.com/austin-mcnicholas/win-reality-gbb-hitting-lesson' : 'YOUR_GBB_LINK_HERE';
+        const linkToCopy = linkType === 'GBB' ? 'https://calendly.com/austin-mcnicholas/' : 'YOUR_GBB_LINK_HERE';
         const tempInput = document.createElement('input');
         tempInput.value = linkToCopy;
         document.body.appendChild(tempInput);
@@ -120,7 +120,7 @@
 </script>
 
 <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/austin-mcnicholas" style="min-width:320px;height:700px;"></div>
+<div class="calendly-inline-widget" data-url="https://calendly.com/" style="min-width:320px;height:700px;"></div>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Calendly inline widget end -->
 
